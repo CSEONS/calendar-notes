@@ -6,6 +6,9 @@ export const RootStyles = {
     secondaryTextColor: '#FFFFFF',
     primaryBackground: '#4267B2',
     secondaryBackground: '898F9C',
+    completeDotColor: 'green',
+    failDotColor: 'red',
+    markDotColor: 'orange',
     androidSafeArea: {
         flex: 1,
         backgroundColor: "white",
