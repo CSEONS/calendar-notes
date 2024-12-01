@@ -72,7 +72,19 @@ export default function PopUpMenu({ size, color, buttons = [] }: PopUpMenuProps)
     return (
         <View style={styles.container}>
             {isOpen && renderButtons()}
-            <Pressable onPress={toggleMenu} style={[styles.mainButton, { width: size, height: size }]}>
+            <Pressable
+                onPress={toggleMenu}
+                style={[
+                    styles.mainButton,
+                    {
+                        width: size,
+                        height: size,
+                        backgroundColor: isOpen
+                            ? RootStyles.secondaryBackground
+                            : RootStyles.primaryBackground,
+                    },
+                ]}
+            >
                 <Animated.View style={{ transform: [{ rotate: rotateAnimation }] }}>
                     <Icon name="add" size={size} color={color} />
                 </Animated.View>
@@ -92,12 +104,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 100, // для круга
-        backgroundColor: RootStyles.primaryBackground,
-    },
-    view: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 100,
     },
     subButton: {
         position: 'absolute',
@@ -110,6 +116,6 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 25, // изменено для корректного радиуса
+        borderRadius: 25,
     },
 });
